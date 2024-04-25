@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Archives | VBB platform</title>
+    <title>post4 | VBB platform</title>
     <meta name="author" content="VVB group" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -31,6 +31,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -101,68 +105,44 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            
-<div id="archives">
-    
-    <div id="timeline-wrap" ref="timeline">
+            <div class="article">
+    <div>
+        <h1>post4</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/4/25
+        </span>
         
-        <div class="timeline" data-title="post1">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/3/17</div>
-                <a href="/2024/03/17/post1/">
-                    <h3>post1</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="post2">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/3/23</div>
-                <a href="/2024/03/23/post2/">
-                    <h3>post2</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="post3">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/4/8</div>
-                <a href="/2024/04/08/post3/">
-                    <h3>post3</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="post4">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/4/25</div>
-                <a href="/2024/04/25/post4/">
-                    <h3>post4</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                </div>
-            </div>
-        </div>
         
     </div>
+    
+    <div class="content" v-pre>
+        <h1 id="Milestone-4"><a href="#Milestone-4" class="headerlink" title="Milestone 4"></a>Milestone 4</h1><p><strong>Date:</strong> 2024.04.27</p>
+<h2 id="Primary-Focus"><a href="#Primary-Focus" class="headerlink" title="Primary Focus"></a>Primary Focus</h2><p>The primary objective of Milestone 4 is to implement the voting functionality, marking a pivotal progression in our project’s development</p>
+<h2 id="Frontend-Development"><a href="#Frontend-Development" class="headerlink" title="Frontend Development"></a>Frontend Development</h2><h3 id="Vote-Manage-Page"><a href="#Vote-Manage-Page" class="headerlink" title="Vote Manage Page"></a>Vote Manage Page</h3><p>We developed a vote management page, which allows users to start new votes and edit previous votes, and has a simple search vote function to make it easier to find a vote directly by its name, and the votes are set to different types, where the different numeric types represent the number of choices supported by the vote, (multiple or single choice).</p>
+<img src="/2024/04/25/post4/post4-1.png" class>
+<img src="/2024/04/25/post4/post4-2.png" class>
+
+<h3 id="Voting-Page"><a href="#Voting-Page" class="headerlink" title="Voting Page"></a>Voting Page</h3><p>Users can choose to enter a vote directly to view specific information on the voting page, you can see the information has the option to vote and the current number of votes, you can choose the object to vote, after the completion of the vote, you can see the number of votes after the update, it should be noted that because of the previous page on the type of voting settings, in the page to complete a certain number of votes, the other options of the voting button will become unavailable to complete the function of multiple choice or single choice.</p>
+<img src="/2024/04/25/post4/post4-3.png" class>
+
+<h2 id="Backend-Development"><a href="#Backend-Development" class="headerlink" title="Backend Development"></a>Backend Development</h2><h3 id="Logic-of-the-voting-function"><a href="#Logic-of-the-voting-function" class="headerlink" title="Logic of the voting function"></a>Logic of the voting function</h3><p>The development of the back-end voting functionality has been completed. The system first allows users to create voting campaigns, each of which is stored in the vote database table.<br>Users can choose whether the voting campaign is single- or multiple-choice, and can also provide start time, end time, and description and other related information.<br>In addition, each voting activity can have multiple candidates, which are stored in the voteDetail table, where vote_id is a foreign key representing which voting activity the candidate belongs to,<br>and the table also stores the name, description, number of votes,<br>start time, end time and other related information of the candidate. Users can vote for specific candidates. The specific database table structure is shown below:</p>
+<h3 id="Back-end-API"><a href="#Back-end-API" class="headerlink" title="Back-end API"></a>Back-end API</h3><p>Our voting API provides comprehensive functionality for managing polls, including the essential operations of creating, updating, deleting, and retrieving individual polls.<br>In addition to these core functions, our API also offers a powerful pagination feature, allowing users to efficiently navigate through large sets of poll data. With pagination,<br>users can specify the desired page size and retrieve subsets of poll results, ensuring optimal performance and usability even when dealing with extensive datasets.<br>Whether you’re a developer integrating voting capabilities into your application or a user interacting with polls, our API delivers a seamless experience with robust features to meet your needs.</p>
+<img src="/2024/04/25/post4/post4-4.jpg" class>
+<img src="/2024/04/25/post4/post4-5.jpg" class>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
 </div>
 
             <footer id="footer">
@@ -193,6 +173,12 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+
+
     
 </body>
 </html>
