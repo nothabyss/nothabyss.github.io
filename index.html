@@ -124,6 +124,84 @@
         
 
 <div class="post">
+    <a href="/2024/06/10/post6/">
+        <h2 class="post-title">post6</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/6/10
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h3 id="Milestone-6-part1"><a href="#Milestone-6-part1" class="headerlink" title="Milestone 6 part1"></a>Milestone 6 part1</h3><h2 id="Blockchain-Voting-System-Listener-Explanation"><a href="#Blockchain-Voting-System-Listener-Explanation" class="headerlink" title="Blockchain Voting System Listener Explanation"></a>Blockchain Voting System Listener Explanation</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p>This milestone is very complicated to implement, so we decide to divide it into two parts firstly. The first part is about the residual work of the application layer, and the next part is related to integration of both VBB and web service. The listener in the blockchain voting system is designed to monitor the <code>vbb/records/vote_pool</code> directory for CSV files, each of which represents a voting pool. Each CSV file corresponds to a unique voting activity, and the listener ensures that for each voting activity, a blockchain is initiated to manage the voting process securely.</p>
+<h3 id="How-It-Works"><a href="#How-It-Works" class="headerlink" title="How It Works"></a>How It Works</h3><ol>
+<li><p><strong>Monitoring CSV Files</strong>:</p>
+<ul>
+<li>The listener continuously checks the <code>vbb/records/vote_pool</code> directory for CSV files.</li>
+<li>Each CSV file represents a separate voting activity, with its name containing critical parameters like maximum votes, duration, and a unique identifier.</li>
+</ul>
+</li>
+<li><p><strong>Blockchain Initialization</strong>:</p>
+<ul>
+<li>For each new CSV file detected, a new blockchain instance is created.</li>
+<li>The blockchain manages the voting data encapsulated in the CSV file, including creating blocks through a mining process.</li>
+</ul>
+</li>
+<li><p><strong>Mining Process</strong>:</p>
+<ul>
+<li>A separate thread is spawned for each blockchain instance to handle the mining process.</li>
+<li>Mining involves validating new votes, creating new blocks, and ensuring the integrity of the blockchain through cryptographic methods.</li>
+</ul>
+</li>
+<li><p><strong>Data Organization</strong>:</p>
+<ul>
+<li><p>Each blockchain instance corresponds to a unique folder within the <code>vbb/records/chains</code> directory.</p>
+</li>
+<li><p>Inside each folder, the blockchain data is stored in <code>.dat</code> files, where each file represents a single block. This format ensures that the blockchain can be easily audited and reviewed block by block.</p>
+<img src="/2024/06/10/post6/post6-1.png" class>
+
+<p><strong>Termination Conditions</strong>:</p>
+</li>
+<li><p>Each blockchain instance operates under specific constraints, such as a maximum number of votes or a time limit.</p>
+</li>
+<li><p>Once these conditions are met, the thread managing the blockchain terminates, ensuring that resources are efficiently utilized and released.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Cleaning Up</strong>:</p>
+<ul>
+<li>If a CSV file is depleted (i.e., all votes are processed), it is automatically removed from the directory to prevent reprocessing.</li>
+</ul>
+</li>
+</ol>
+<h3 id="Running-the-Listener"><a href="#Running-the-Listener" class="headerlink" title="Running the Listener"></a>Running the Listener</h3><p>To run the listener, ensure that you have Python installed on your machine and the necessary project files are correctly set up.</p>
+<p><strong>Run the Script</strong>:</p>
+<ul>
+<li><p>Execute the listener by typing:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python listener2.py</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="Running-Example"><a href="#Running-Example" class="headerlink" title="Running Example"></a>Running Example</h3><img src="/2024/06/10/post6/post6-2.png" class>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2024/06/10/post6/" class="go-post">read whole artical</a>
+</div>
+
+<div class="post">
     <a href="/2024/05/28/post5/">
         <h2 class="post-title">post5</h2>
     </a>
