@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>post7 | VBB platform</title>
+    <meta name="author" content="VVB group" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>VBB PLATFORM</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;VBB PLATFORM</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>post7</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/6/30
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h3 id="Milestone-7"><a href="#Milestone-7" class="headerlink" title="Milestone 7"></a>Milestone 7</h3><h2 id="Integration-between-Java’s-web-and-Python’s-blockchain-system"><a href="#Integration-between-Java’s-web-and-Python’s-blockchain-system" class="headerlink" title="Integration between Java’s web and Python’s blockchain system"></a>Integration between Java’s web and Python’s blockchain system</h2><h3 id><a href="#" class="headerlink" title></a></h3><p><strong>Challenge:</strong> how to connect Python’s algorithm with Java’s web? </p>
+<p><strong>Inspiration:</strong> Java Web offers service to users. </p>
+<p>Why we cannot offer service to Java Web?</p>
+<p>Thus, we offer services to Java Web through flask, a web framework of Python.</p>
+<h3 id="Flask-service"><a href="#Flask-service" class="headerlink" title="Flask service"></a>Flask service</h3><p>Flask is a lightweight web framework written in Python. It is used to build web applications quickly and with minimal code. Therefore, it is a perfect tool to provide services related to operations of interacting with blockchains for Java backend. We list the APIs in details as Table 1.</p>
+<table>
+<thead>
+<tr>
+<th>Request url</th>
+<th>Method</th>
+<th>Parameters</th>
+<th>Return value (all return values consist of three parts, msg (“Success” or “Error”), code (can be empty), details (can be empty)</th>
+<th>Functions</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>enc layer</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/enc/keys">http://127.0.0.1:5000/enc/keys</a></td>
+<td>get</td>
+<td>Null</td>
+<td>“Success” represents success, “Error” represents failure. Return private key and public key in “details”</td>
+<td>Obtain a pair of public and private keys</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/enc/hash_public_key">http://127.0.0.1:5000/enc/hash_public_key</a></td>
+<td>post</td>
+<td>public_key</td>
+<td>“Success” represents success, “Error” represents failure. Return the hash of the public key in “details”</td>
+<td>Obtain the hash of the public key</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/enc/many_hash">http://127.0.0.1:5000/enc/many_hash</a></td>
+<td>post</td>
+<td>public_key, blockchain_id, max_votes</td>
+<td>“Success” represents success, and “details” returns max_votes hash values</td>
+<td>Obtain n binding codes for a voting activity</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/enc/digital_signer">http://127.0.0.1:5000/enc/digital_signer</a></td>
+<td>posst</td>
+<td>public_key, data, signature</td>
+<td>“Success” represents success, “Error” represents failure.</td>
+<td>Verify digital signature</td>
+</tr>
+<tr>
+<td>data layer</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/data/load_blockchain">http://127.0.0.1:5000/data/load_blockchain</a></td>
+<td>post</td>
+<td>blockchain_id</td>
+<td>“Success” represents success, “Error” represents failure. Return the JSON list of blockchain in “details”</td>
+<td>Obtain data for the entire blockchain (including the Genesis block)</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/data/load_Genesis">http://127.0.0.1:5000/data/load_Genesis</a></td>
+<td>post</td>
+<td>blockchain_id</td>
+<td>“Success” represents success, “Error” represents failure. Return the Genesis block JSON of the blockchain in “details”</td>
+<td>Obtain only one blockchain’s Genesis block (i.e. header block)</td>
+</tr>
+<tr>
+<td>protocol layer</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/protocol/delete_chain">http://127.0.0.1:5000/protocol/delete_chain</a></td>
+<td>post</td>
+<td>blockchain_id</td>
+<td>“Success” represents successful deletion, “Error” represents failure</td>
+<td>Delete a voting activity</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/protocol/delete_csv">http://127.0.0.1:5000/protocol/delete_csv</a></td>
+<td>post</td>
+<td>blockchain_id</td>
+<td>“Success” represents successful deletion, “Error” represents failure, and “Not_empty” in details indicates that there is still data inside and the mining has not been completed yet</td>
+<td>Delete a CSV file</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/protocol/syn_blocks">http://127.0.0.1:5000/protocol/syn_blocks</a></td>
+<td>post</td>
+<td>blockchain_id</td>
+<td>“Success” represents verification error free, “Error” represents verification failure</td>
+<td>Verify if the entire blockchain connection is correct</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/protocol/verify_blocks">http://127.0.0.1:5000/protocol/verify_blocks</a></td>
+<td>post</td>
+<td>blockchain_id</td>
+<td>“Success” represents verification error free, “Error” represents verification failure</td>
+<td>Verify that all data on each block of a chain is correct</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/protocol/verify_merkles">http://127.0.0.1:5000/protocol/verify_merkles</a></td>
+<td>post</td>
+<td>blockchain_id</td>
+<td>“Success” represents verification error free, “Error” represents verification failure</td>
+<td>Verify if the voting data for each block in a chain is correct</td>
+</tr>
+</tbody></table>
+<center>Table 1<center>
+
+<p>After implementing all the APIs using Flask, backend can send requests to internal Flask server to call the functions it need accordingly, greatly Improving the efficiency of the whole system while completing the segmentation of business and algorithm levels.</p>
+<h3 id="Deploy-using-Docker"><a href="#Deploy-using-Docker" class="headerlink" title="Deploy using Docker"></a>Deploy using Docker</h3><p>We will run our project on a cloud server. And reproducing and debugging issues can be harder if the application environment isn’t consistently defined and packaged. So here we try to deploy the Python environment on a Linux server using Docker.</p>
+<p>After installing Docker,first pull a base image of python 3.11 and generate the required packages in requirements. txt by the command line.</p>
+<p>Next, we write a Docker file environment configuration and run the command to build a new Python image.Inside the python image, we can use the following steps to create and manage a single container to run our project:by python fapp python file.</p>
+<p>During the deployment, we also encountered some problems:</p>
+<p>The first problem is that external files cannot be called.</p>
+<p>All files created in the Docker container can only be used inside the container and are not suitable for interaction with our project files. Here we use the method of mounting the docker container working directory to the data volume to solve the problem.</p>
+<p>The second problem is that the port inside the container is not actually consistent with the external port, so we need to map it. Here we only use port 5000, and we only need to map it to the external port 5000.</p>
+</center></center>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2024 VBB platform
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;VVB group
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

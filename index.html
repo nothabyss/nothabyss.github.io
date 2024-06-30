@@ -124,6 +124,160 @@
         
 
 <div class="post">
+    <a href="/2024/06/30/post7/">
+        <h2 class="post-title">post7</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/6/30
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h3 id="Milestone-7"><a href="#Milestone-7" class="headerlink" title="Milestone 7"></a>Milestone 7</h3><h2 id="Integration-between-Java’s-web-and-Python’s-blockchain-system"><a href="#Integration-between-Java’s-web-and-Python’s-blockchain-system" class="headerlink" title="Integration between Java’s web and Python’s blockchain system"></a>Integration between Java’s web and Python’s blockchain system</h2><h3 id><a href="#" class="headerlink" title></a></h3><p><strong>Challenge:</strong> how to connect Python’s algorithm with Java’s web? </p>
+<p><strong>Inspiration:</strong> Java Web offers service to users. </p>
+<p>Why we cannot offer service to Java Web?</p>
+<p>Thus, we offer services to Java Web through flask, a web framework of Python.</p>
+<h3 id="Flask-service"><a href="#Flask-service" class="headerlink" title="Flask service"></a>Flask service</h3><p>Flask is a lightweight web framework written in Python. It is used to build web applications quickly and with minimal code. Therefore, it is a perfect tool to provide services related to operations of interacting with blockchains for Java backend. We list the APIs in details as Table 1.</p>
+<table>
+<thead>
+<tr>
+<th>Request url</th>
+<th>Method</th>
+<th>Parameters</th>
+<th>Return value (all return values consist of three parts, msg (“Success” or “Error”), code (can be empty), details (can be empty)</th>
+<th>Functions</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>enc layer</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/enc/keys">http://127.0.0.1:5000/enc/keys</a></td>
+<td>get</td>
+<td>Null</td>
+<td>“Success” represents success, “Error” represents failure. Return private key and public key in “details”</td>
+<td>Obtain a pair of public and private keys</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/enc/hash_public_key">http://127.0.0.1:5000/enc/hash_public_key</a></td>
+<td>post</td>
+<td>public_key</td>
+<td>“Success” represents success, “Error” represents failure. Return the hash of the public key in “details”</td>
+<td>Obtain the hash of the public key</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/enc/many_hash">http://127.0.0.1:5000/enc/many_hash</a></td>
+<td>post</td>
+<td>public_key, blockchain_id, max_votes</td>
+<td>“Success” represents success, and “details” returns max_votes hash values</td>
+<td>Obtain n binding codes for a voting activity</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/enc/digital_signer">http://127.0.0.1:5000/enc/digital_signer</a></td>
+<td>posst</td>
+<td>public_key, data, signature</td>
+<td>“Success” represents success, “Error” represents failure.</td>
+<td>Verify digital signature</td>
+</tr>
+<tr>
+<td>data layer</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/data/load_blockchain">http://127.0.0.1:5000/data/load_blockchain</a></td>
+<td>post</td>
+<td>blockchain_id</td>
+<td>“Success” represents success, “Error” represents failure. Return the JSON list of blockchain in “details”</td>
+<td>Obtain data for the entire blockchain (including the Genesis block)</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/data/load_Genesis">http://127.0.0.1:5000/data/load_Genesis</a></td>
+<td>post</td>
+<td>blockchain_id</td>
+<td>“Success” represents success, “Error” represents failure. Return the Genesis block JSON of the blockchain in “details”</td>
+<td>Obtain only one blockchain’s Genesis block (i.e. header block)</td>
+</tr>
+<tr>
+<td>protocol layer</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/protocol/delete_chain">http://127.0.0.1:5000/protocol/delete_chain</a></td>
+<td>post</td>
+<td>blockchain_id</td>
+<td>“Success” represents successful deletion, “Error” represents failure</td>
+<td>Delete a voting activity</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/protocol/delete_csv">http://127.0.0.1:5000/protocol/delete_csv</a></td>
+<td>post</td>
+<td>blockchain_id</td>
+<td>“Success” represents successful deletion, “Error” represents failure, and “Not_empty” in details indicates that there is still data inside and the mining has not been completed yet</td>
+<td>Delete a CSV file</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/protocol/syn_blocks">http://127.0.0.1:5000/protocol/syn_blocks</a></td>
+<td>post</td>
+<td>blockchain_id</td>
+<td>“Success” represents verification error free, “Error” represents verification failure</td>
+<td>Verify if the entire blockchain connection is correct</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/protocol/verify_blocks">http://127.0.0.1:5000/protocol/verify_blocks</a></td>
+<td>post</td>
+<td>blockchain_id</td>
+<td>“Success” represents verification error free, “Error” represents verification failure</td>
+<td>Verify that all data on each block of a chain is correct</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="http://127.0.0.1:5000/protocol/verify_merkles">http://127.0.0.1:5000/protocol/verify_merkles</a></td>
+<td>post</td>
+<td>blockchain_id</td>
+<td>“Success” represents verification error free, “Error” represents verification failure</td>
+<td>Verify if the voting data for each block in a chain is correct</td>
+</tr>
+</tbody></table>
+<center>Table 1<center>
+
+<p>After implementing all the APIs using Flask, backend can send requests to internal Flask server to call the functions it need accordingly, greatly Improving the efficiency of the whole system while completing the segmentation of business and algorithm levels.</p>
+<h3 id="Deploy-using-Docker"><a href="#Deploy-using-Docker" class="headerlink" title="Deploy using Docker"></a>Deploy using Docker</h3><p>We will run our project on a cloud server. And reproducing and debugging issues can be harder if the application environment isn’t consistently defined and packaged. So here we try to deploy the Python environment on a Linux server using Docker.</p>
+<p>After installing Docker,first pull a base image of python 3.11 and generate the required packages in requirements. txt by the command line.</p>
+<p>Next, we write a Docker file environment configuration and run the command to build a new Python image.Inside the python image, we can use the following steps to create and manage a single container to run our project:by python fapp python file.</p>
+<p>During the deployment, we also encountered some problems:</p>
+<p>The first problem is that external files cannot be called.</p>
+<p>All files created in the Docker container can only be used inside the container and are not suitable for interaction with our project files. Here we use the method of mounting the docker container working directory to the data volume to solve the problem.</p>
+<p>The second problem is that the port inside the container is not actually consistent with the external port, so we need to map it. Here we only use port 5000, and we only need to map it to the external port 5000.</p>
+</center></center>
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2024/06/30/post7/" class="go-post">read whole artical</a>
+</div>
+
+<div class="post">
     <a href="/2024/06/10/post6/">
         <h2 class="post-title">post6</h2>
     </a>
@@ -141,7 +295,7 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <h3 id="Milestone-6-part1"><a href="#Milestone-6-part1" class="headerlink" title="Milestone 6 part1"></a>Milestone 6 part1</h3><h2 id="Blockchain-Voting-System-Listener-Explanation"><a href="#Blockchain-Voting-System-Listener-Explanation" class="headerlink" title="Blockchain Voting System Listener Explanation"></a>Blockchain Voting System Listener Explanation</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p>This milestone is very complicated to implement, so we decide to divide it into two parts firstly. The first part is about the residual work of the application layer, and the next part is related to integration of both VBB and web service. The listener in the blockchain voting system is designed to monitor the <code>vbb/records/vote_pool</code> directory for CSV files, each of which represents a voting pool. Each CSV file corresponds to a unique voting activity, and the listener ensures that for each voting activity, a blockchain is initiated to manage the voting process securely.</p>
+            <h3 id="Milestone-6"><a href="#Milestone-6" class="headerlink" title="Milestone 6"></a>Milestone 6</h3><h2 id="Blockchain-Voting-System-Listener-Explanation"><a href="#Blockchain-Voting-System-Listener-Explanation" class="headerlink" title="Blockchain Voting System Listener Explanation"></a>Blockchain Voting System Listener Explanation</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p>This milestone is very complicated to implement, so we decide to divide it into two parts firstly. The first part is about the residual work of the application layer, and the next part is related to integration of both VBB and web service, which will be included into Milestone 7. The listener in the blockchain voting system is designed to monitor the <code>vbb/records/vote_pool</code> directory for CSV files, each of which represents a voting pool. Each CSV file corresponds to a unique voting activity, and the listener ensures that for each voting activity, a blockchain is initiated to manage the voting process securely.</p>
 <h3 id="How-It-Works"><a href="#How-It-Works" class="headerlink" title="How It Works"></a>How It Works</h3><ol>
 <li><p><strong>Monitoring CSV Files</strong>:</p>
 <ul>
